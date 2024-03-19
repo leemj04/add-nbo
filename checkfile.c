@@ -1,4 +1,6 @@
 #include "checkfile.h"
+#include <stdio.h>
+#include <stdint.h>
 
 int checkFile(char filename[], int* num) {
 	FILE* fp = fopen(filename, "rb");
