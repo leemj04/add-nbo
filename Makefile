@@ -1,10 +1,17 @@
 #Makefile
 all: add-nbo
 
-add-nbo: add-nbo.o
-	g++ -o add-nbo add-nbo.o
+add-nbo: main.o checkfile.o my_htonl.o
+	g++ -o add-nbo main.o checkfile.o my_htonl.o
 
-add-nbo.o: add-nbo.c
+main.o: checkfile.h my_htonl.h main.c
+	g++ -c -o main.o main.c
+	
+checkfile.o: checkfile.h checkfile.c
+	g++ -c -o checkfile.o checkfile.c
+
+my_htonl.o: my_htonl.h my_htonl.c
+	g++ -c -o my_htonl.o my_htonl.c
 
 clean:
 	rm -f add-nbo
