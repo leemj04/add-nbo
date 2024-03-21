@@ -20,6 +20,8 @@ int checkFile(char filename[], int* num) {
 	
 	fseek(fp, 0, SEEK_SET);
 	fread(num, sizeof(uint32_t), 1, fp);
+
+	fclose(fp);
 	
 	return 1;
 }
